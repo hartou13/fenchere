@@ -32,6 +32,7 @@ class UpdateCommi extends Component {
                                 <h3 className="text-center" id="addCategorieTitle">Nouvelle commission par defaut:</h3>
                                 <br />
                             </div>
+                            <form id="commi">
                             <div id="addCategorieForm" className="container  d-flex flex-column justify-content-center align-items-center">
                                 <label id="input">
                                     <input type="number" id="field" placeholder=" " name="valeur"  step={0.001}  />  
@@ -40,6 +41,7 @@ class UpdateCommi extends Component {
                                 <hr />
                                 <button className="btn" id="btnAdd" onClick={this.handleSubmit}>Confimer</button>
                             </div>
+                            </form>
                         </div>
                     </div>    
                 </div>
