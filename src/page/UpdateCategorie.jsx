@@ -52,7 +52,8 @@ class UpdateCategorie extends Component{
 
         const requestOption={
             method:'PUT',
-            body:data
+            body:data, 
+            authorization: localStorage.getItem("token")
         }
 
 
