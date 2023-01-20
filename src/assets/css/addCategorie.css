@@ -1,0 +1,112 @@
+:root {
+    --color-dark: #724d08;
+    --color-light:#fff;
+    --color-signal: #662b17;
+    --color-background: var(--color-light);
+    --color-text: var(--color-dark);
+    --color-accent: var(--color-signal);
+    --size-bezel: 0.5rem;
+    --size-radius: 4px;
+    line-height: 1.4;
+    font-family: "Poppins";
+    font-size: calc(0.6rem + 0.4vw);
+    color: var(--color-text);
+    background: var(--color-background);
+    font-weight: 300;
+    padding: 0 calc(var(--size-bezel) * 3);
+}
+
+
+#addCategorieCard{
+    position: relative;
+    background: #E8C16B!important;
+    padding: 20px;
+    margin: 40px;
+    border: 2px solid #722308!important;
+    border-radius: var(--size-radius);
+    transition: 0.5s ease-in-out all;
+    padding-bottom: 10%;
+}
+
+
+#addCategorieTitle{
+    font-family: "Poppins";
+    font-size: 150%!important;
+    font-weight: lighter!important;
+    color: #fff!important;
+}
+
+
+
+#input{
+    position: relative;
+    width: 70%;
+    transition: 0.5s ease-in-out all;
+  }
+  #label {
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 120%;
+    font-family: "Poppins";
+    padding: calc(var(--size-bezel) * 0.75) calc(var(--size-bezel) * 0.5);
+    margin: calc(var(--size-bezel) * 0.75 + 3px) calc(var(--size-bezel) * 0.5);
+    white-space: nowrap;
+    transform: translate(0, 0);
+    transform-origin: 0 0;
+    background: #E8C16B;
+    transition: transform 120ms ease-in;
+    line-height: 1.2;
+  }
+  #field {
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    border: 2px solid #725608;
+    padding: calc(var(--size-bezel) * 1.5) var(--size-bezel);
+    color: #41370c;
+    font-family: "Poppins";
+    font-size: 100%;
+    background: transparent;
+    border-radius: var(--size-radius);
+  }
+  #field:not(:-moz-placeholder-shown) + #label {
+    transform: translate(0.25rem, -65%) scale(0.8);
+    color: var(--color-accent);
+  }
+  #field:not(:-ms-input-placeholder) + #label {
+    transform: translate(0.25rem, -65%) scale(0.8);
+    color: var(--color-accent);
+  }
+  #field:focus + #label, #field:not(:placeholder-shown) + #label {
+    transform: translate(0.25rem, -65%) scale(0.8);
+    color: var(--color-accent);
+}
+
+#field:focus{
+    border-color: #F4845F!important;
+}
+
+#btnAdd{
+    font-family: "Poppins";
+    font-size: 90%!important;
+    border: 1px solid var(--color-signal);
+    width: 65%;
+    color: #fff;
+    background: var(--color-signal);
+}
+
+
+#labelSelect{
+    font-family: "Poppins";
+    color: #fff;
+}
+
+
+
+
+option,select{
+  background: #f4b35f;
+  font-family: "Poppins";
+}
+

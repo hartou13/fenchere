@@ -1,0 +1,48 @@
+
+img {
+    object-fit: cover;
+}
+
+
+#container {
+    background-color: #fff;
+    transition: 2s ease-in-out all;
+}
+#blur {
+    transition: 1s ease-in-out all;
+} 
+#blur.active {
+    filter: blur(15px);
+    pointer-events: none;
+    user-select: none;
+}
+
+
+#table {
+    border-collapse: collapse;
+    width: 100%;
+}
+  
+#table th{
+    background: #E8C16B!important;
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+#table tr:nth-child(even){background-color: #f2f2f2;}
+  
+#table tr:hover {background-color: #ddd;}
+  
+#table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    color: white;
+}
+#table td {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    font-family: "Poppins";
+    color: rgb(54, 54, 54);
+}
