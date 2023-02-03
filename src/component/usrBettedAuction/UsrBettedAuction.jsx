@@ -1,48 +1,47 @@
 import React, { Component } from 'react';
-import FetchHelper from '../..//Helper/FetchHelper';
 import List from '../../gen/List';
-// import ListStat from '../../gen/ListStat';
+import FetchHelper from '../../Helper/FetchHelper';
 import URLHelper from '../../Helper/URLHelper';
-import NavCategorie from '../../page/NavCategorie';
 import { Loading } from '../Loading';
-
-class ListOnGoingAuction extends Component {
-    state = { 
-        liste: [
-			{
-                maxmise: 600000.0,
-                idUtilisateur: 2,
-                refEnchere: "EN002",
-                debut: "Jan 10, 2023, 12:00:00 AM",
-                duree: {
-                    years: 0,
-                    months: 0,
-                    days: 90,
-                    hours: 0,
-                    minutes: 0,
-                    wholeSeconds: 0,
-                    microSeconds: 0,
-                    type: "interval"
-                },
-                prixDeMisEnEnchere: 500000.0,
-                idLot: 2,
-                Commission: 5.0,
-                listSary: [{idLot:1, sary:"test"}],
-                id: 2
-            }
-        ]
-    } 
+import NavFrontOffice from '../../page/NavFrontOffice';
+class UsrBettedAuction extends Component {
+    state = { liste:[
+        {
+            idUtilisateur: 2,
+            status: "to be finished",
+            nomlot: "Subaru imprezza",
+            maxmise: 600000.0,
+            somme: 600000.0,
+            refEnchere: "EN003",
+            debut: "Jan 10, 2023, 12:00:00 AM",
+            duree: {
+                years: 0,
+                months: 0,
+                days: 2,
+                hours: 0,
+                minutes: 0,
+                wholeSeconds: 0,
+                microSeconds: 0,
+                type: "interval"
+            },
+            prixDeMisEnEnchere: 500000.0,
+            idLot: 3,
+            Commission: 5.0,
+            listSary: [],
+            id: 3
+        }
+    ] } 
     constructor(){
         super();
     //    this.state = {inf:FetchHelper.getData(URLHelper.urlgen("api/Proformat_fournisseur_demande_ressource"))};
         this.listStat();
     }
     listStat=async ()=>{
-        const val=await (FetchHelper.getData(URLHelper.urlgen("encheres/onGoing/")));
+        const val=await (FetchHelper.getData(URLHelper.urlgen("encheres/bettedAuction/"+localStorage.getItem("idUser"))));
+        console.log(val);
         this.setState({liste:val.data.liste});
         if("error" in val)
             window.location.replace("/")
-        console.log(val.data);
         // console.log("hereeee");
     }
     formatDuree=(duree)=>{
@@ -76,10 +75,11 @@ class ListOnGoingAuction extends Component {
             return <td></td>
         }
     }
-    render() { 
+    render() { if(localStorage.getItem("idUser")==null)
+    window.location.replace("/redirect");
         return (
-            <React.Fragment>
-                <NavCategorie/>
+            <div>
+                <NavFrontOffice></NavFrontOffice>
                 {
                     FetchHelper.loading ?(
                         <Loading/>
@@ -96,8 +96,10 @@ class ListOnGoingAuction extends Component {
                                                 <th>duree</th>
                                                 <th>prix de mise en enchere</th>
                                                 <th>lot</th>
-                                                <th>commission</th>
+                                                {/* <th>commission</th> */}
                                                 <th>Mise max</th>
+                                                <th>ma mise</th>
+                                                <th>statut</th>
                                                 <th>image</th>
                                             </tr>
                                         </thead>
@@ -109,9 +111,11 @@ class ListOnGoingAuction extends Component {
                                                 <td>{el.debut}</td>
                                                 <td>{this.formatDuree(el.duree)}</td>
                                                 <td>{el.prixDeMisEnEnchere}</td>
-                                                <td>{el.idLot}</td>
-                                                <td>{el.Commission}</td>
+                                                <td>{el.nomlot}</td>
+                                                {/* <td>{el.Commission}</td> */}
                                                 <td>{el.maxmise}</td>
+                                                <td>{el.somme}</td>
+                                                <td>{el.status}</td>
                                                 {this.renderSary(el.listSary)}
                                             </tr>)}
                                             
@@ -122,9 +126,9 @@ class ListOnGoingAuction extends Component {
                         </div>
                     )
                 }
-            </React.Fragment>
+            </div>
         );
     }
 }
  
-export default ListOnGoingAuction;
+export default UsrBettedAuction;

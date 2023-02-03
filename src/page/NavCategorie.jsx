@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import "./../assets/css/nav.css";
-import logo from './../assets/img/profile.png';
+import logo from './../component/default.png';
 class NavCategorie extends Component {
     state = {  } 
     unlog=()=>{
-        localStorage.removeItem("token");
+        // localStorage.removeItem("token");
+        localStorage.clear();
     }
     render() { 
         return (<div className="navCategorie">
@@ -48,7 +49,10 @@ class NavCategorie extends Component {
                             <a href="/updateCommi"><button id="btn-nav" className="btn">Mettre à jour la commission</button></a>
                         </li>
                         <li className="nav-item">
-                            <a href="/"><button id="btn-nav" className="btn" onClick={this.unlog}>déconnexion</button></a>
+                            <a href="/aclore"><button id="btn-nav" className="btn">Clore les enchere</button></a>
+                        </li>
+                        <li className="nav-item">
+                            <a href="/loginAdmin"><button id="btn-nav" className="btn" onClick={this.unlog}>déconnexion</button></a>
                         </li>
                     </ul>
                 </div>

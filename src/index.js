@@ -20,7 +20,13 @@ import ListOnGoingAuction from './component/listEnchereEnCours/ListOnGoingAuctio
 import UpdateAdmin from './component/updateAdmin/UpdateAdmin';
 import UpdateCommi from './component/updateCommi/UpdateCommi';
 import EnchereAClore from './component/enchereAClore/EnchereAClore';
-
+import AdvSearch from './component/advSearch/AdvSearch';
+import ListeEnchere from './enchere/ListeEnchere';
+import Connexion from './pages/connexion/Connexion';
+import UpdateProfil from './pages/profil/updateProfil';
+import UsrBettedAuction from './component/usrBettedAuction/UsrBettedAuction';
+import Mise from './component/Mise';
+import Redirect from './component/util/Redirect';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 let data = [
   {
@@ -42,7 +48,7 @@ root.render(
   <BrowserRouter>
     <Routes>
       {/* mialy */}
-      <Route path={'/'} element={<LoginAdmin />} ></Route>
+      <Route path={'/loginAdmin'} element={<LoginAdmin />} ></Route>
       {/* hart */}
       <Route path={'/stat'} element={<BackOffStat />} ></Route>
       <Route path={'/listUser'} element={<ListUsers />} ></Route>
@@ -63,6 +69,21 @@ root.render(
       <Route path="/t" element={<TableComp border="1" cellSpacing="0" className="table table-striped table-sm" data={data} header={header}></TableComp>} />
       <Route path="/nv" element={<NotValidate></NotValidate>} />
       <Route path="/input" element={<InputComponent className="form-control" placeholder="Enter your Name" name="nom" type="date"></InputComponent>} />
+      {/* 2 */}
+
+      {/* hart */}
+      <Route path={'/search'} element={<AdvSearch />} ></Route>
+      <Route path={'/uba'} element={<UsrBettedAuction />} ></Route>
+      <Route path={'/redirect'} element={<Redirect />} ></Route>
+      {/* do */}
+      <Route path="/" element={<ListeEnchere></ListeEnchere>}/>
+      {/* mialy */}
+      <Route path="/conn" element={<Connexion />} />
+      <Route path="/updateProfil" element={<UpdateProfil/>} />
+
+      {/* faneva */}
+      <Route path="/mise" element={<Mise/>} />
+
     </Routes>
   </BrowserRouter>
 );

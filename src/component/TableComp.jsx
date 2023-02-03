@@ -3,7 +3,7 @@ export default class TableComp extends Component {
     state={
         header:[],
         data:[]
-    }; 
+    };
     constructor(props){
         super(props);
         this.state.header=this.props.header;

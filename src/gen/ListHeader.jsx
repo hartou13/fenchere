@@ -5,7 +5,7 @@ class ListHeader extends Component {
         let keys=Object.keys(objt);
         let res=[];
         keys.map(element=>{
-            console.log(element+"--------");
+            // console.log(element+"--------");
             if( typeof objt[element] === "string" || typeof  objt[element] === "number"){  
                 // console.log("the object is "+objt[element]);  
                 if(element !=="mdp" && element !=="id")         

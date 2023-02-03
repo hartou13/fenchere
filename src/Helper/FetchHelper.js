@@ -2,7 +2,7 @@
 class FetchHelper {
 
     static loading = false;
-
+    
     static getData = async (url) => {
 
 
